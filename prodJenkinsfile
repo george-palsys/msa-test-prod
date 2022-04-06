@@ -15,7 +15,7 @@ pipeline {
         stage('clone from SCM') {
             steps {
                 dir("/nanshanpoc") {
-                sh 'rm -rf /msa-test-prod'
+                sh 'rm -rf /nanshanpoc/msa-test-prod'
                 sh 'git clone git@github.com:george-palsys/msa-test-prod.git'
                 }
             }
