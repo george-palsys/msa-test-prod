@@ -23,7 +23,7 @@ pipeline {
 			
         stage('Create product-v2 Application') { 
             steps {
-               dir("/msa-test-prod") {
+               dir("/nanshanpoc/msa-test-prod") {
                sh 'git checkout v2'
                sh './clean-v2.sh  >/dev/null 2>&1'
                sh 'oc new-app java:openjdk-11-el7~https://github.com/george-palsys/msa-test-prod.git#v2 --context-dir=product --labels="app.kubernetes.io/part-of=msa-test-prod-git-app,app=product,version=v2" --name=product-v2 -n nanshan'
@@ -33,7 +33,7 @@ pipeline {
 
         stage('config product-v2 service') { 
             steps {
-               dir("/msa-test-prod") {
+               dir("/nanshanpoc/msa-test-prod") {
                sh '''
 	           git checkout v2
                    oc delete svc product
