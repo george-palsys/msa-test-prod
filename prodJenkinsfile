@@ -16,27 +16,7 @@ pipeline {
 
         sh '''
 
-          java -version
-
-        '''
-
-      }
-
-    }
-
-    stage('cat HELP.md') {
-
-      when {
-
-        branch "v2"
-
-      }
-
-      steps {
-
-        sh '''
-
-          cat HELP.md
+          echo Hello main
 
         '''
 
