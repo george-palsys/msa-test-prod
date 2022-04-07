@@ -24,7 +24,7 @@ pipeline {
         stage('Create product-v2 Application') { 
             steps {
                dir("/mprod/msa-test-prod") {
-			   git checkout v2
+               sh 'git checkout v2'
                sh './clean-v2.sh  >/dev/null 2>&1'
                sh 'oc new-app java:openjdk-11-el7~https://github.com/george-palsys/msa-test-prod.git#v2 --labels="app.kubernetes.io/part-of=msa-test-prod-git-app,app=product,version=v2" --name=product-v2 -n nanshan'
                }
